@@ -13,7 +13,10 @@ The rounding mechanism only applies to the total amount of a bill and not on ind
 ### Usage
 ```void JSK(std::string stringTotalBill)```
 
-Main function that takes a parameter of string(user's input), the function will then compare the last index of the string in order to decide whether to round up or round down, and to which multiple of 5 sen.
+Main function that takes a parameter of string(user's input), the function will then compare the last index of the string in order to decide whether to :
+1) Round up or Round down
+2) To which multiple of 5 sen
+3) Do nothing
 
 ### Table taken directly from https://github.com/comradesharf/Jimat-dan-SENang-Kira
 <table>
