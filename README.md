@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Jimat-Senang-Kira
-=======
 # Jimat-Senang-Kira
 An interview question(Ecava) that I come across of on Jobstreet.
 
@@ -58,4 +55,7 @@ The rounding mechanism only applies to the total amount of a bill and not on ind
     <td>82.10</td>
   </tr>
 </table>
->>>>>>> 390b9ed0eb7318739176c00172bd4a86cc3759ca
+
+## Screenshot
+![image](https://github.com/shinjiat/Jimat-Senang-Kira/blob/master/screenshots/1.png?raw=true)
+
