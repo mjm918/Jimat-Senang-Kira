@@ -4,10 +4,10 @@ An interview question([Ecava](https://www.jobstreet.com.my/en/job/software-devel
 The rounding mechanism only applies to the total amount of a bill and not on individual items. Under this exercise, the total amount of a bill inclusive of tax, which ends in 1, 2, 6 and 7 sen will be rounded downwards to the nearest multiple of 5 sen while the total bill which ends in 3, 4, 8 and 9 sen will be rounded upwards.
 
 ### Note
-`
+```
 1) Tested and compiled successfully on Ubuntu 16.04
 2) Should be able to run on Windows without line 24
-`
+```
 
 `g++ main.cpp -std=c++11 -o jimat && ./jimat`
 
