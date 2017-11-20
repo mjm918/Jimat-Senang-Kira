@@ -17,7 +17,7 @@ g++ main.cpp -std=c++11 -o jimat && ./jimat
 #include <iomanip> //accuracy
 #include <stdlib.h> //system()
 
-void JSK(std::string);
+void JSK(std::string); //function declaration
 
 int main()
 {
@@ -36,56 +36,59 @@ int main()
 			std::cin >> totalBill;
 		}
 		std::ostringstream ss;
-		ss << std::fixed << std::setprecision(2) << totalBill;
-		std::string stringTotalBill = ss.str();
+		ss << std::fixed << std::setprecision(2) << totalBill; //formatting input to 2 decimal places
+		std::string stringTotalBill = ss.str(); //converting double to string, this approach is to get the second decimal places easily (to decide round up or down)
 
 	JSK(stringTotalBill);
 }
 
+//function implementation
 void JSK(std::string stringTotalBill)
 {
-	long double tempTotalBill, totalBill;
+	long double totalBill;
 	std::string status;
-	int flag = 0;
+	int flag = 0; //whether the function got round up or round down the total bill or not, 0 means no, 1 means yes
 
-		//getting the last number of the total bill
-		char lastValue = stringTotalBill[3];
-		int intLastValue = lastValue - '0'; //converting char to int
+	/*
+	getting the last number of the total bill
+	Input : RM 4.56
+	stringTotalBill[3] = 6
+	*/
 
-	if(stringTotalBill[3] == '1' || stringTotalBill[3] == '2' || stringTotalBill[3] == '6' || stringTotalBill[3] == '7')
+	char lastValue = stringTotalBill.at( stringTotalBill.length() - 1 );
+	int intLastValue = lastValue - '0'; //converting char to int
+
+	long double tempTotalBill = stold(stringTotalBill);
+	
+
+	if(intLastValue == 1 || intLastValue == 2 || intLastValue == 6 || intLastValue == 7) //round down operation
 	{
-
-		if(intLastValue < 5)
+		if(intLastValue < 5) //if the last value is less than 5
 		{
-			tempTotalBill = stold(stringTotalBill);
-			stringTotalBill[3] = '0';
-			totalBill = stold(stringTotalBill);
+			stringTotalBill[stringTotalBill.length() - 1] = '0';
 		}
 
 		else
 		{
-			tempTotalBill = stold(stringTotalBill);
-			stringTotalBill[3] = '5';
-			totalBill = stold(stringTotalBill);
+			stringTotalBill[stringTotalBill.length() - 1] = '5';
 		}
+		totalBill = stold(stringTotalBill);
 		status = "down";
 		flag = 1;
 	}
 
-	else if(stringTotalBill[3] == '3' || stringTotalBill[3] == '4' || stringTotalBill[3] == '8' || stringTotalBill[3] == '9')
+	else if(intLastValue == 3 || intLastValue == 4 || intLastValue == 8 || intLastValue == 9) //round up operation
 	{
-
 		if(intLastValue < 5)
 		{
-			tempTotalBill = stold(stringTotalBill);
-			stringTotalBill[3] = '5';
+			stringTotalBill[stringTotalBill.length() - 1] = '5';
 			totalBill = stold(stringTotalBill);
 		}
 
 		else
 		{
-			tempTotalBill = stold(stringTotalBill);
-			stringTotalBill[3] = '0';
+			stringTotalBill[stringTotalBill.length() - 1] = '0';
+
 			totalBill = stold(stringTotalBill);
 			totalBill = totalBill + 0.1;
 		}
