@@ -7,7 +7,8 @@ The rounding mechanism only applies to the total amount of a bill and not on ind
 * Tested and compiled successfully on Ubuntu 16.04
 * Should be able to run on Windows without line 24
 * To compile and run on Linux platform, use this line of command
-     g++ main.cpp -std=c++11 -o jimat && ./jimat
+
+     ```g++ main.cpp -std=c++11 -o jimat && ./jimat```
 
 
 
