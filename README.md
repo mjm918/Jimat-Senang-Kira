@@ -10,7 +10,9 @@ The rounding mechanism only applies to the total amount of a bill and not on ind
 
      ```g++ main.cpp -std=c++11 -o jimat && ./jimat```
 
-
+### Usage
+```void JSK(std::string stringTotalBill)```
+Main function that takes a parameter of string(user's input), the function will then compare the last index of the string in order to decide whether to round up or round down, and to which multiple of 5 sen.
 
 ### Table taken directly from https://github.com/comradesharf/Jimat-dan-SENang-Kira
 <table>
