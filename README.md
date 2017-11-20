@@ -5,6 +5,7 @@ The rounding mechanism only applies to the total amount of a bill and not on ind
 
 ### Note
 Tested and compiled successfully on Ubuntu 16.04
+
 `g++ main.cpp -std=c++11 -o jimat && ./jimat`
 
 ### Table taken directly from https://github.com/comradesharf/Jimat-dan-SENang-Kira
