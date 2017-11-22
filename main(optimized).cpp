@@ -79,7 +79,7 @@ void JSK(std::string stringTotalBill)
 		else
 		{
 			stringTotalBill[stringTotalBill.length() - 1] = '0';
-			flag++; //to indicate the value need to be added by 0.1, so when flag is 2, if(@90) is true
+			flag++; //to indicate the value need to be added by 0.1, so if flag is 2, increase total bill by 0.1 and then display it(when flag is not null)
 		}
 		status = "up";
 		flag++; //if JSK has taken place
