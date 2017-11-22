@@ -21,7 +21,10 @@ void JSK(std::string); //function declaration
 
 int main()
 {
-	system("clear"); //flush terminal
+	//these system commands is to clear the terminal/command prompt 
+	system("clear"); //if linux platform
+	//system("cls"); //if windows platform
+	
 	long double totalBill; //user input	
 
 	std::cout << "*********Senang & Jimat Kira*********" << std::endl;
