@@ -49,14 +49,15 @@ void JSK(std::string stringTotalBill)
 	std::string status;
 	int flag = 0; //whether the function got round up or round down the total bill or not, 0 means no, 1 means yes
 
-	/*
-	getting the last number of the total bill
-	Input : RM 4.56
-	stringTotalBill[3] = 6
-	*/
 
 	char lastValue = stringTotalBill.at( stringTotalBill.length() - 1 );
 	int intLastValue = lastValue - '0'; //converting char to int
+	
+	/*
+		this approach is to get the last index of the total bill
+		Input : RM 4.56
+		intLastValue is 6, from here we can do simple comparison to decide round up or down and to which multiple of 5sen
+	*/
 
 	long double tempTotalBill = stold(stringTotalBill);
 	
@@ -72,9 +73,9 @@ void JSK(std::string stringTotalBill)
 		{
 			stringTotalBill[stringTotalBill.length() - 1] = '5';
 		}
-		totalBill = stold(stringTotalBill);
+		totalBill = stold(stringTotalBill); 
 		status = "down";
-		flag = 1;
+		flag = 1; //if JSK function is called
 	}
 
 	else if(intLastValue == 3 || intLastValue == 4 || intLastValue == 8 || intLastValue == 9) //round up operation
@@ -89,11 +90,11 @@ void JSK(std::string stringTotalBill)
 		{
 			stringTotalBill[stringTotalBill.length() - 1] = '0';
 
-			totalBill = stold(stringTotalBill);
+			totalBill = stold(stringTotalBill); //converting string to long double, this is to add 0.1 sen when the last value is a 8 or 9
 			totalBill = totalBill + 0.1;
 		}
 		status = "up";
-		flag = 1;
+		flag = 1; //if JSK function is called
 	}
 
 		if(flag == 1)
@@ -101,7 +102,7 @@ void JSK(std::string stringTotalBill)
 			std::cout << "\nRM " <<  tempTotalBill << " has been rounded " << status << " to RM " << std::fixed << std::setprecision(2) << totalBill << std::endl;
 		}
 
-		else
+		else //when (flag == 0), it means JSK function was not called
 		{
 			std::cout << "\nJSK function was not called because the last value is a 0 or 5!" << std::endl;
 		}
