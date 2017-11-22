@@ -75,7 +75,7 @@ void JSK(std::string stringTotalBill)
 		}
 		totalBill = stold(stringTotalBill); 
 		status = "down";
-		flag = 1; //if JSK function is called
+		flag = 1; //if JSK has taken place
 	}
 
 	else if(intLastValue == 3 || intLastValue == 4 || intLastValue == 8 || intLastValue == 9) //round up operation
@@ -94,7 +94,7 @@ void JSK(std::string stringTotalBill)
 			totalBill = totalBill + 0.1;
 		}
 		status = "up";
-		flag = 1; //if JSK function is called
+		flag = 1; //if JSK has taken place
 	}
 
 		if(flag == 1)
@@ -102,8 +102,8 @@ void JSK(std::string stringTotalBill)
 			std::cout << "\nRM " <<  tempTotalBill << " has been rounded " << status << " to RM " << std::fixed << std::setprecision(2) << totalBill << std::endl;
 		}
 
-		else //when (flag == 0), it means JSK function was not called
+		else //when (flag == 0), it means JSK hadn't taken place
 		{
-			std::cout << "\nJSK function was not called because the last value is a 0 or 5!" << std::endl;
+			std::cout << "\nJSK function had not taken place because the last value is a 0 or 5!" << std::endl;
 		}
 }
