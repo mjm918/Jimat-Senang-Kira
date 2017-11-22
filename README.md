@@ -5,7 +5,7 @@ The rounding mechanism only applies to the total amount of a bill and not on ind
 
 ### Note
 * Tested and compiled successfully on Ubuntu 16.04
-* Replace line 24 with ```system("cls");``` on Windows platform.
+* Replace line 25 with ```system("cls");``` on Windows platform.
 * To compile and run on Linux platform, use this line of command
 
      ```g++ main.cpp -std=c++11 -o jimat && ./jimat```
