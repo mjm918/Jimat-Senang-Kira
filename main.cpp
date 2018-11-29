@@ -9,37 +9,14 @@
 #include <iomanip> //accuracy
 #include <stdlib.h> //system()
 
-void JSK(std::string); //function declaration
-
-int main()
-{
-	//these system commands is to clear the terminal/command prompt 
-	system("cls"); //if windows platform
-	
-	long double totalBill; //user input	
-
-	std::cout << "*********Senang & Jimat Kira*********" << std::endl;
-	std::cout << "\n\nPlease enter the amount of the total bill: RM ";
-	std::cin >> totalBill;
-		while(totalBill <= 0 || std::cin.fail() || !std::cin) //input validation, is still "vulnerable" to input like 1/12, 4.4.4. will be fixed on next commit
-		{
-			std::cin.clear();
-			std::cin.ignore(10000, '\n');
-			std::cout << "You have entered an invalid entry for \"Total Bill\". Please enter again!" << std::endl;
-			std::cout << "Please enter the amount of the total bill: RM ";
-			std::cin >> totalBill;
-		}
-		std::ostringstream ss;
-		ss << std::fixed << std::setprecision(2) << totalBill; //formatting input to 2 decimal places
-		std::string stringTotalBill = ss.str(); //converting double to string, this approach is to get the second decimal places easily (to decide round up or down)
-
-	JSK(stringTotalBill);
-	return 0;
-}
-
+template <typename T>
 //function definition
-void JSK(std::string stringTotalBill)
+T JSK(T any)
 {
+    std::ostringstream oss; // create a stream
+    oss << any; // insert value to stream
+    std::string stringTotalBill = oss.str();
+  
 	long double totalBill;
 	std::string status;
 	int flag = 0; //whether the function got round up or round down the total bill or not, 0 means no, 1 means yes
@@ -101,4 +78,30 @@ void JSK(std::string stringTotalBill)
 		{
 			std::cout << "\nJSK function had not taken place because the last value is a 0 or 5!" << std::endl;
 		}
+}
+
+int main()
+{
+	//these system commands is to clear the terminal/command prompt 
+	system("cls"); //if windows platform
+	
+	long double totalBill; //user input	
+
+	std::cout << "*********Senang & Jimat Kira*********" << std::endl;
+	std::cout << "\n\nPlease enter the amount of the total bill: RM ";
+	std::cin >> totalBill;
+		while(totalBill <= 0 || std::cin.fail() || !std::cin) //input validation, is still "vulnerable" to input like 1/12, 4.4.4. will be fixed on next commit
+		{
+			std::cin.clear();
+			std::cin.ignore(10000, '\n');
+			std::cout << "You have entered an invalid entry for \"Total Bill\". Please enter again!" << std::endl;
+			std::cout << "Please enter the amount of the total bill: RM ";
+			std::cin >> totalBill;
+		}
+		std::ostringstream ss;
+		ss << std::fixed << std::setprecision(2) << totalBill; //formatting input to 2 decimal places
+		std::string stringTotalBill = ss.str(); //converting double to string, this approach is to get the second decimal places easily (to decide round up or down)
+
+	JSK(stringTotalBill);
+	return 0;
 }
